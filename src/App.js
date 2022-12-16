@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import useClicker from './hooks/useClicker';
 
 function App() {
+  const clicker = useClicker();
+  const { noOfClicks, increment, decrement, reset } = clicker;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={increment}>INCREMENT</button>
+      <h1>Clicked {noOfClicks} times</h1>
+      <button onClick={decrement}>DECREMENT</button>
+      <button onClick={reset}>RESET</button>
+    </>
   );
 }
 
